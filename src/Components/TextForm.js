@@ -54,6 +54,13 @@ export default function TextForm(props) {
 			setWord(reversedSentence);
 			
 		}
+	const ManagePascalCase =
+	() => {
+		const pascalCase =
+			word.match(/\w+/g).map(x=>x[0].toUpperCase()+x.slice(1)).join(' ')
+		setWord(pascalCase);
+		
+	}
 	const ManageOnChange =
 		(events) => {
 			console.log("On Change");
@@ -103,6 +110,11 @@ export default function TextForm(props) {
 					className="btn btn-primary mx-2 my=1"
 					onClick={ManageReverseSentence}>
 					Reverse Sentence
+				</button>
+				<button disabled={word.length === 0}
+					className="btn btn-primary mx-2 my=1"
+					onClick={ManagePascalCase}>
+					PascalCase
 				</button>
 			</div>
 			<div className="container my-3"
